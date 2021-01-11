@@ -10,15 +10,17 @@ def F2(x1, x2):
 
 
 def derivation(x, fun):
-    h = 0.01
+    h = 0.001
     return round((fun(x + h) - fun(x)) / (h), 2)
 
 
 def gradient(point, fun):
     x1 = point[0]
     x2 = point[1]
-    h = 0.01
-    list = [round((fun(x1 + h, x2) - fun(x1 - h, x2)) / (2 * h), 2), round(((fun(x1, x2 + h) - fun(x1, x2)) / h), 2)]
+    h = 0.001
+    x1 = (fun(x1 + h, x2) - fun(x1, x2)) / h
+    x2 = (fun(x1, x2 + h) - fun(x1, x2)) / h
+    list = [round(x1,2),round(x2,2)]
     return list
 
 
@@ -40,6 +42,7 @@ def gradient_optimization_multi_dim(point, fun):
     list = [round(x1, 2), round(x2, 2)]
     return list
 
+
 derivation(10, F1)
 
 point1 = [10, 1]
@@ -48,4 +51,10 @@ gradient(point1, F2)
 gradient_optimization_one_dim(10, F1)
 
 point2 = [4, 10]
+gradient_optimization_multi_dim(point2, F2)
+
+print(derivation(10, F1))
+print(gradient(point1, F2))
+print(gradient_optimization_one_dim(10, F1))
 print(gradient_optimization_multi_dim(point2, F2))
+
