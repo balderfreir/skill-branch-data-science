@@ -40,12 +40,12 @@ def gradient_optimization_multi_dim(point, fun):
     list = [round(x1, 2), round(x2, 2)]
     return list
 
-# print(derivation(10, F1))
-# point1 = [10, 1]
-#
-# print(gradient(point1, F2))
-#
-# print(gradient_optimization_one_dim(10, F1))
-#
-# point2 = [4, 10]
-# print(gradient_optimization_multi_dim(point2, F2))
+derivation(10, F1)
+
+point1 = [10, 1]
+gradient(point1, F2)
+
+gradient_optimization_one_dim(10, F1)
+
+point2 = [4, 10]
+print(gradient_optimization_multi_dim(point2, F2))
