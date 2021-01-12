@@ -15,7 +15,7 @@ def derivation(x, fun):
 def gradient(point, fun):
     x1 = point[0]
     x2 = point[1]
-    h = 0.001
+    h = 0.0001
     point_x1 = [x1 + h, x2]
     point_x2 = [x1, x2+h]
     x1 = (fun(point_x1) - fun(point))/h
@@ -23,11 +23,17 @@ def gradient(point, fun):
     list = [round(x1, 2), round(x2, 2)]
     return list
 
-def gradient_optimization_one_dim(x, fun):
+# def gradient_optimization_one_dim(x, fun):
+#     h = 0.001
+#     for i in range(0, 50):
+#         x = x - h * (fun(x + h) - fun(x)) / h
+#     return round(x, 2)
+
+def gradient_optimization_one_dim(fun):
     h = 0.001
+    x = 10
     for i in range(0, 50):
         x = x - h * (fun(x + h) - fun(x)) / h
-
     return round(x, 2)
 
 def gradient_optimization_multi_dim(point, fun):
@@ -49,5 +55,5 @@ point1 = [10, 1]
 point2 = [4, 10]
 print(derivation(10, F1))
 print(gradient(point1, F2))
-print(gradient_optimization_one_dim(10, F1))
+print(gradient_optimization_one_dim(F1))
 print(gradient_optimization_multi_dim(point2, F2))
