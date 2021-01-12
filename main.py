@@ -43,11 +43,12 @@ def gradient_optimization_multi_dim(fun):
 
     for i in range(0, 50):
         point = [x1, x2]
+
         point_x1 = [x1 + h, x2]
         point_x2 = [x1, x2 + h]
 
-        x1 = x1 - h*((fun(point_x1)-fun(point)/h))
-        x2 = x2 - h*((fun(point_x2)-fun(point)/h))
+        x1 = x1 - h*(((fun(point_x1)-fun(point))/h))
+        x2 = x2 - h*(((fun(point_x2)-fun(point))/h))
 
     list = [round(x1, 2), round(x2, 2)]
     return list
