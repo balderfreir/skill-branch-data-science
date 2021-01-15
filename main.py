@@ -19,7 +19,7 @@ def derivation(x, fun):
 def gradient(point, fun):
     x1 = point[0]
     x2 = point[1]
-    h = 0.0001
+    h = 0.00001
     point_x1 = [x1 + h, x2]
     point_x2 = [x1, x2 + h]
     x1 = (fun(point_x1) - fun(point)) / h
