@@ -21,7 +21,7 @@ def gradient(point, fun):
     x2 = point[1]
     h = 0.01
     point_x1 = [x1 + h, x2]
-    point_x2 = [x1, x2+h]
+    point_x2 = [x1, x2 + h]
     x1 = (fun(point_x1) - fun(point)) / h
     x2 = (fun(point_x2) - fun(point)) / h
     list = [round(x1, 2), round(x2, 2)]
@@ -47,8 +47,8 @@ def gradient_optimization_multi_dim(fun):
         point_x1 = [x1 + h, x2]
         point_x2 = [x1, x2 + h]
 
-        x1 = x1 - h*(((fun(point_x1)-fun(point))/h))
-        x2 = x2 - h*(((fun(point_x2)-fun(point))/h))
+        x1 = round(x1 - h * (((fun(point_x1) - fun(point)) / h)), 2)
+        x2 = round(x2 - h * (((fun(point_x2) - fun(point)) / h)), 2)
 
     list = [round(x1, 2), round(x2, 2)]
     return list
