@@ -46,7 +46,7 @@ def calculate_squared_stats_by_material():
 def calculate_crosstab():
     pass
 
-df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+# df = pd.read_csv('sberbank_housing_market.csv', sep=',')
 
 # print(df.shape)
 # print(calculate_cheap_apartment(df))
