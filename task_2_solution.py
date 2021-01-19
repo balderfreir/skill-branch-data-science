@@ -2,22 +2,21 @@ import pandas as pd
 import numpy as np
 
 
-def calculate_data_shape(dataframe):
-    dt = dataframe
+def calculate_data_shape(dt):
     return print(dt.shape)
 
 
-def take_columns(dataframe):
-    dt = dataframe
+def take_columns(dt):
     return print(dt.columns)
 
 
-def calculate_target_ratio():
-    pass
+def calculate_target_ratio(dataframe, target_name):
+    mean = round(dataframe[target_name].mean(),2)
+    return print(mean)
 
 
-def calculate_data_dtypes():
-    pass
+def calculate_data_dtypes(df):
+    return print(df.dtypes)
 
 
 def calculate_cheap_apartment():
@@ -44,6 +43,8 @@ def calculate_crosstab():
     pass
 
 
-df = pd.read_csv('sberbank_housing_market.csv', sep=',')
-calculate_data_shape(df)
-take_columns(df)
+# df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+# calculate_data_shape(df)
+# take_columns(df)
+# calculate_target_ratio(df,'price_doc')
+# calculate_data_dtypes(df)
