@@ -33,7 +33,10 @@ def calculate_cheap_apartment(dataframe):
 
 
 def calculate_squad_in_cheap_apartment(dataframe):
-    df = dataframe.loc[dataframe.loc[:, 'price_doc'] <= 1000000.0]
+    # df = dataframe.loc[dataframe.loc[:, 'full_sq'] != 0.0]
+    # df = dataframe.loc[dataframe.loc[:, 'price_doc'] != 0.0]
+    df = dataframe.loc[dataframe.loc[:, 'price_doc'] <= 1000000]
+
     return int(df['full_sq'].mean())
 
 
@@ -45,8 +48,8 @@ def calculate_mean_price_in_new_housing(dataframe):
 
 
 def calculate_mean_squared_by_num_rooms(dataframe):
-    dataframe['price_mean'] = round(dataframe['full_sq'] / dataframe['num_room'], 2)
-    return dataframe['price_mean']
+    df = round(dataframe.groupby('num_room')['full_sq'].mean(), 2)
+    return df
 
 
 def calculate_squared_stats_by_material():
@@ -64,7 +67,7 @@ def calculate_crosstab():
 # print(calculate_cheap_apartment(df))
 # print(calculate_squad_in_cheap_apartment(df))
 # print(calculate_mean_price_in_new_housing(df))
-# print(calculate_mean_squared_by_num_rooms(df))
+#print(calculate_mean_squared_by_num_rooms(df))
 # print(take_columns(df))
 # print(df['num_room'])
 # print(df['build_year'])
