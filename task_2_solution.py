@@ -65,9 +65,9 @@ def calculate_crosstab(x): # Задание 10.
     pass
 
 
-df = pd.read_csv('sberbank_housing_market.csv', sep=',')
-print(calculate_squad_in_cheap_apartment(df))  # 6
-print(calculate_mean_price_in_new_housing(df))  # 7
-print(calculate_squared_stats_by_material(df))  # 9
-print(calculate_crosstab(df))  # 10
+# df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+# print(calculate_squad_in_cheap_apartment(df))  # 6
+# print(calculate_mean_price_in_new_housing(df))  # 7
+# print(calculate_squared_stats_by_material(df))  # 9
+# print(calculate_crosstab(df))  # 10
 
