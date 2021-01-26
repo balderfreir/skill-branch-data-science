@@ -53,23 +53,21 @@ def calculate_mean_squared_by_num_rooms(dataframe):  # 8
     return df
 
 
-def calculate_squared_stats_by_material():  # 9
+def calculate_squared_stats_by_material(dataframe): # Задание 9.
+    # df = dataframe
+    # df['min'] = dataframe.groupby('material')['full_sq'].min()
+    # df['max'] = dataframe.groupby('material')['full_sq'].max()
+
+
+    return pd.pivot_table(dataframe,index='material',values='full_sq',aggfunc={'full_sq': [np.max, np.min]})
+
+def calculate_crosstab(x): # Задание 10.
     pass
 
 
-def calculate_crosstab():  # 10
-    pass
+df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+print(calculate_squad_in_cheap_apartment(df))  # 6
+print(calculate_mean_price_in_new_housing(df))  # 7
+print(calculate_squared_stats_by_material(df))  # 9
+print(calculate_crosstab(df))  # 10
 
-
-# df = pd.read_csv('sberbank_housing_market.csv', sep=',')
-# df = df.loc[df.loc[:, 'price_doc'] <= 1000000]
-# print(calculate_data_dtypes(df))
-# print(len(df.columns))
-# print(calculate_cheap_apartment(df))
-# print(calculate_squad_in_cheap_apartment(df))  # 6
-# print(calculate_mean_price_in_new_housing(df))  # 7
-# print(calculate_mean_squared_by_num_rooms(df))
-# print(take_columns(df))
-# print(df['num_room'])
-# print(df['build_year'])
-# print(df['material'])
