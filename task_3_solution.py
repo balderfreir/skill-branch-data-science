@@ -23,9 +23,13 @@ def split_data_into_two_samples(dataframe):  # 1
 
 def prepare_data(dataframe):  # 2
     df = dataframe.drop(['id'], axis = 'columns')
+    columns_list = dataframe.colums
+    for el in columns_list:
+        if dataframe[el] == 'object':
+            df = dataframe.drop([el], axis='columns')
 
     price_doc = dataframe['price_doc']
-    pass
+    return df, price_doc
 
 
 def scale_data(dataframe):  # 3
@@ -48,4 +52,6 @@ def calculate_model_weights(dataframe):  # 8
     pass
 
 df = pd.read_csv('sberbank_housing_market.csv', sep=',')
-print(split_data_into_two_samples(df))
+# print(split_data_into_two_samples(df))
+
+print(df['id'].dtypes)
