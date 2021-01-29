@@ -22,6 +22,9 @@ def split_data_into_two_samples(dataframe):  # 1
 
 
 def prepare_data(dataframe):  # 2
+    df = dataframe.drop(['id'], axis = 'columns')
+
+    price_doc = dataframe['price_doc']
     pass
 
 
