@@ -18,7 +18,7 @@ from sklearn.model_selection import train_test_split
 def split_data_into_two_samples(dataframe):  # 1
     x_train, x_test = train_test_split(dataframe, test_size=int(len(dataframe) * 0.7), train_size=int(len(dataframe) * 0.3),
                                        random_state=42)
-    return len(x_train), len(x_test)
+    return x_train, x_test
 
 
 def prepare_data(dataframe):  # 2
@@ -53,8 +53,8 @@ def calculate_model_weights(dataframe):  # 8
     pass
 
 
-df = pd.read_csv('sberbank_housing_market.csv', sep=',')
-print(split_data_into_two_samples(df))
-print(prepare_data(df))
+# df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+# print(split_data_into_two_samples(df))
+# print(prepare_data(df))
 
 # print(df['id'].dtypes)
