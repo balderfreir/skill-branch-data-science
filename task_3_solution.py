@@ -16,19 +16,20 @@ from sklearn.model_selection import train_test_split
 
 
 def split_data_into_two_samples(dataframe):  # 1
-    x_train, x_test = train_test_split(dataframe,test_size=70, train_size=30, random_state=42 )
-    return x_train, x_test
-
+    x_train, x_test = train_test_split(dataframe, test_size=int(len(dataframe) * 0.7), train_size=int(len(dataframe) * 0.3),
+                                       random_state=42)
+    return len(x_train), len(x_test)
 
 
 def prepare_data(dataframe):  # 2
-    df = dataframe.drop(['id'], axis = 'columns')
-    columns_list = dataframe.colums
+    df = dataframe.drop(['id'], axis='columns')
+    columns_list = df.columns
     for el in columns_list:
-        if dataframe[el] == 'object':
-            df = dataframe.drop([el], axis='columns')
+        if df[el].dtypes == 'object':
+            df = df.drop([el], axis='columns')
 
     price_doc = dataframe['price_doc']
+    df = df.drop(['price_doc'], axis='columns')
     return df, price_doc
 
 
@@ -51,7 +52,9 @@ def evaluate_model(dataframe):  # 7
 def calculate_model_weights(dataframe):  # 8
     pass
 
-# df = pd.read_csv('sberbank_housing_market.csv', sep=',')
-# print(split_data_into_two_samples(df))
+
+df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+print(split_data_into_two_samples(df))
+print(prepare_data(df))
 
 # print(df['id'].dtypes)
