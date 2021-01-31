@@ -16,9 +16,14 @@ from sklearn.model_selection import train_test_split
 
 
 def split_data_into_two_samples(dataframe):  # 1
-    x_train, x_test = train_test_split(dataframe, test_size=0.7,
-                                       random_state=42)
-    return x_test, x_train
+    #  x_train, x_test = train_test_split(dataframe, test_size=0.7,
+    #                                    random_state=42)
+    df_size = round(len(dataframe))
+
+    x = dataframe.head(int(df_size*0.7))
+    y = dataframe.tail(df_size - len(x))
+
+    return x, y
 
 
 def prepare_data(dataframe):  # 2
