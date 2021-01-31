@@ -33,9 +33,11 @@ def prepare_data(dataframe):  # 2
         if df[el].dtypes == 'object':
             df = df.drop([el], axis='columns')
 
-    price_doc = dataframe['price_doc']
+    price_doc = df['price_doc']
     df = df.drop(['price_doc'], axis='columns')
     df = df.dropna()
+    # df = df.select_dtypes(exclude='object')
+    # print(df.dtypes)
     return price_doc, df
 
 
@@ -59,8 +61,8 @@ def calculate_model_weights(dataframe):  # 8
     pass
 
 
-# df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+df = pd.read_csv('sberbank_housing_market.csv', sep=',')
 # print(split_data_into_two_samples(df))
-# print(prepare_data(df))
+print(prepare_data(df))
 
 # print(df['id'].dtypes)
