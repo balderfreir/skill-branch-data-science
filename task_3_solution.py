@@ -66,8 +66,8 @@ def calculate_model_weights(dataframe):  # 8
     pass
 
 
-df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+# df = pd.read_csv('sberbank_housing_market.csv', sep=',')
 # print(split_data_into_two_samples(df))
-print(prepare_data(df))
+# print(prepare_data(df))
 
 # print(df['id'].dtypes)
