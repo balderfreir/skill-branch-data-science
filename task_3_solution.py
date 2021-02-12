@@ -43,7 +43,7 @@ def prepare_data(dataframe):  # 2
     # df = df.drop(['price_doc'], axis='columns')
     #
     # print(df.dtypes)
-    return price_doc, df
+    return np.array(price_doc), np.array(df)
 
 
 def scale_data(dataframe):  # 3
