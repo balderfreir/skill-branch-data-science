@@ -57,7 +57,7 @@ def scale_data(dataframe, transformer):  # 3
 
 def prepare_data_for_model(dataframe, transformer):  # 4
     df, price_doc = prepare_data(dataframe)
-    df =  scale_data(df, transformer)
+    df =  scale_data(dataframe, transformer)
     return df, price_doc
 
 
