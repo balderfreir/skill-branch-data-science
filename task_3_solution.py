@@ -50,7 +50,7 @@ def scale_data(dataframe, transformer):  # 3
     numeric_data = dataframe.select_dtypes([np.number])
     # numeric_data_mean = numeric_data.mean()
     numeric_features = numeric_data.columns
-    scaler = transformer()
+    scaler = transformer
     df = scaler.fit_transform(dataframe[numeric_features])
     return df
 
