@@ -43,7 +43,7 @@ def prepare_data(dataframe):  # 2
     # df = df.drop(['price_doc'], axis='columns')
     #
     # print(df.dtypes)
-    return np.array(price_doc), np.array(df)
+    return np.array(df), np.array(price_doc)
 
 
 def scale_data(dataframe):  # 3
@@ -67,7 +67,7 @@ def calculate_model_weights(dataframe):  # 8
 
 
 # df = pd.read_csv('sberbank_housing_market.csv', sep=',')
-# print(split_data_into_two_samples(df))
+#
 # print(prepare_data(df))
-
+# print(split_data_into_two_samples(df))
 # print(df['id'].dtypes)
