@@ -52,7 +52,7 @@ def scale_data(dataframe, transformer):  # 3
     numeric_features = numeric_data.columns
     scaler = transformer
     df = scaler.fit_transform(dataframe[numeric_features])
-    return df
+    return pd.DataFrame(df, index=range(df.shape[0]), columns=range(df.shape[1]))
 
 
 def prepare_data_for_model(dataframe, transformer):  # 4
