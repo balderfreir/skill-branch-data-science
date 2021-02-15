@@ -46,8 +46,13 @@ def prepare_data(dataframe):  # 2
     return df, price_doc
 
 
-def scale_data(dataframe):  # 3
-    pass
+def scale_data(dataframe, transformer):  # 3
+    numeric_data = dataframe.select_dtypes([np.number])
+    # numeric_data_mean = numeric_data.mean()
+    numeric_features = numeric_data.columns
+    scaler = transformer()
+    df = scaler.fit_transform(dataframe[numeric_features])
+    return df
 
 
 def prepare_data_for_model(dataframe):  # 4
@@ -67,7 +72,8 @@ def calculate_model_weights(dataframe):  # 8
 
 
 # df = pd.read_csv('sberbank_housing_market.csv', sep=',')
-# print(prepare_data(df))
+# print(scale_data(df,MinMaxScaler))
 
 # print(split_data_into_two_samples(df))
+# print(prepare_data(df))
 # print(df['id'].dtypes)
