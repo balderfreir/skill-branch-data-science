@@ -55,8 +55,8 @@ def scale_data(dataframe, transformer):  # 3
     return df
 
 
-def prepare_data_for_model(dataframe):  # 4
-    pass
+def prepare_data_for_model(dataframe, transformer):  # 4
+    return scale_data(dataframe, transformer), prepare_data(dataframe)
 
 
 def fit_first_linear_model(dataframe):  # 5, 6
