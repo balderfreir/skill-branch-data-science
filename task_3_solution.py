@@ -31,8 +31,8 @@ def prepare_data(dataframe):  # 2
     price_doc = df['price_doc']
     df = df.drop(['price_doc'], axis='columns')
     df = df.drop(['id'], axis='columns')
-    df = df.dropna()
-    #df = df.dropna(axis='columns', inplace=True)
+    #df = df.dropna()
+    df = df.dropna(axis='columns')
 
     # columns_list = df.columns
     # for el in columns_list:
@@ -66,8 +66,8 @@ def calculate_model_weights(dataframe):  # 8
     pass
 
 
-# df = pd.read_csv('sberbank_housing_market.csv', sep=',')
-# print(prepare_data(df))
+df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+print(prepare_data(df))
 
 # print(split_data_into_two_samples(df))
 # print(df['id'].dtypes)
