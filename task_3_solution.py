@@ -66,11 +66,11 @@ def fit_first_linear_model(x_train, y_train):  # 5, 6
     return model
 
 
-def evaluate_model(dataframe):  # 7
+def evaluate_model(model, x_valid, y_valid):  # 7
     pass
 
 
-def calculate_model_weights(dataframe):  # 8
+def calculate_model_weights(model, columns):  # 8
     pass
 
 
