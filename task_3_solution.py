@@ -71,12 +71,12 @@ def evaluate_model(model, x_valid, y_valid):  # 7
     mse = mean_squared_error(x_valid, y_pred)
     mae = mean_absolute_error(x_valid, y_pred)
     r2 = r2_score(x_valid, y_pred)
-    return mae, mse, r2
+    return round(mse, 2), round(mae, 2), round(r2, 2)
 
 
 def calculate_model_weights(model, columns):  # 8
 
-    return pd.DataFrame(model, index=range(columns), columns=["features", "weights"])
+    return pd.DataFrame(model, index=columns, columns=["features", "weights"])
 
 # df = pd.read_csv('sberbank_housing_market.csv', sep=',')
 # print(prepare_data_for_model(df, MinMaxScaler()))
