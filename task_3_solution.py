@@ -8,7 +8,7 @@ import pandas as pd
 # from tqdm import tqdm
 
 from sklearn.datasets import make_regression
-from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import SGDClassifier, LinearRegression
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -61,8 +61,9 @@ def prepare_data_for_model(dataframe, transformer):  # 4
     return df, price_doc
 
 
-def fit_first_linear_model(dataframe):  # 5, 6
-    pass
+def fit_first_linear_model(x_train, y_train):  # 5, 6
+    model = LinearRegression().fit(x_train,y_train)
+    return model
 
 
 def evaluate_model(dataframe):  # 7
