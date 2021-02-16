@@ -31,7 +31,7 @@ def prepare_data(dataframe):  # 2
     price_doc = df['price_doc']
     df = df.drop(['price_doc'], axis='columns')
     df = df.drop(['id'], axis='columns')
-    #df = df.dropna()
+    # df = df.dropna()
     df = df.dropna(axis='columns')
 
     # columns_list = df.columns
@@ -57,12 +57,12 @@ def scale_data(dataframe, transformer):  # 3
 
 def prepare_data_for_model(dataframe, transformer):  # 4
     df, price_doc = prepare_data(dataframe)
-    df =  scale_data(df, transformer)
+    df = scale_data(df, transformer)
     return df, price_doc
 
 
 def fit_first_linear_model(x_train, y_train):  # 5, 6
-    model = LinearRegression().fit(x_train,y_train)
+    model = LinearRegression().fit(x_train, y_train)
     return model
 
 
@@ -71,8 +71,8 @@ def evaluate_model(model, x_valid, y_valid):  # 7
 
 
 def calculate_model_weights(model, columns):  # 8
-    pass
 
+    return pd.DataFrame(model, index=range(columns), columns=["features", "weights"])
 
 # df = pd.read_csv('sberbank_housing_market.csv', sep=',')
 # print(prepare_data_for_model(df, MinMaxScaler()))
