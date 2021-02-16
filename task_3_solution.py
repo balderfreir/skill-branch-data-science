@@ -10,7 +10,7 @@ import pandas as pd
 from sklearn.datasets import make_regression
 from sklearn.linear_model import SGDClassifier, LinearRegression
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
-from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import train_test_split
 
@@ -67,7 +67,11 @@ def fit_first_linear_model(x_train, y_train):  # 5, 6
 
 
 def evaluate_model(model, x_valid, y_valid):  # 7
-    pass
+    y_pred = np.dot(model, y_valid)
+    mse = mean_squared_error(x_valid, y_pred)
+    mae = mean_absolute_error(x_valid, y_pred)
+    r2 = r2_score(x_valid, y_pred)
+    return mae, mse, r2
 
 
 def calculate_model_weights(model, columns):  # 8
