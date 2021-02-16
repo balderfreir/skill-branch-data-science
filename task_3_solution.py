@@ -13,6 +13,7 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import train_test_split
+from sklearn.svm._libsvm import predict
 
 
 def split_data_into_two_samples(dataframe):  # 1
@@ -67,7 +68,7 @@ def fit_first_linear_model(x_train, y_train):  # 5, 6
 
 
 def evaluate_model(model, x_valid, y_valid):  # 7
-    y_pred = np.dot(model, y_valid)
+    y_pred = model.predict(y_valid)
     mse = mean_squared_error(x_valid, y_pred)
     mae = mean_absolute_error(x_valid, y_pred)
     r2 = r2_score(x_valid, y_pred)
