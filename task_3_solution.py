@@ -79,7 +79,13 @@ def calculate_model_weights(model, columns):  # 8
 
     return pd.DataFrame(model, index=columns, columns=["features", "weights"])
 
+
 # df = pd.read_csv('sberbank_housing_market.csv', sep=',')
+# x_train, y_train = prepare_data_for_model(df, MinMaxScaler())
+# model = fit_first_linear_model(x_train, y_train)
+# print(evaluate_model(model, x_train, y_train))
+
+# print(prepare_data_for_model(df, MinMaxScaler()))
 # print(prepare_data_for_model(df, MinMaxScaler()))
 
 
