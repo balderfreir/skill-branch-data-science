@@ -68,21 +68,20 @@ def fit_first_linear_model(x_train, y_train):  # 5, 6
 
 
 def evaluate_model(model, x_valid, y_valid):  # 7
-    inv_matrix = np.linalg.inv(np.dot(x_valid.T, x_valid))
-    w_norm = np.dot(np.dot(inv_matrix, x_valid.T), y_valid)
-    y_pred = np.dot(w_norm, x_valid.T)
+    # inv_matrix = np.linalg.inv(np.dot(x_valid.T, x_valid))
+    # w_norm = np.dot(np.dot(inv_matrix, x_valid.T), y_valid)
+    # y_pred = np.dot(w_norm, x_valid.T)
 
-    # y_pred = model.predict(x_valid)
-    mse = mean_squared_error(y_valid, y_pred)
-    mae = mean_absolute_error(y_valid, y_pred)
-    r2 = r2_score(y_valid, y_pred)
-    return round(mse, 2), round(r2, 2), round(mae, 2)
+    y_pred = model.predict(x_valid)
+    mse = round(mean_squared_error(y_valid, y_pred), 2)
+    mae = round(mean_absolute_error(y_valid, y_pred), 2)
+    r2 = round(r2_score(y_valid, y_pred), 2)
+    return mse, mae, r2
 
 
 def calculate_model_weights(model, columns):  # 8
 
     return pd.DataFrame(model, index=columns, columns=["features", "weights"])
-
 
 # df = pd.read_csv('sberbank_housing_market.csv', sep=',')
 # x_train, y_train = prepare_data_for_model(df, MinMaxScaler())
