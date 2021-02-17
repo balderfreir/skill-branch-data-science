@@ -72,7 +72,7 @@ def evaluate_model(model, x_valid, y_valid):  # 7
     mse = mean_squared_error(y_valid, y_pred)
     mae = mean_absolute_error(y_valid, y_pred)
     r2 = r2_score(y_valid, y_pred)
-    return round(mae, 2), round(r2, 2), round(mse, 2)
+    return round(r2, 2), round(mse, 2), round(mae, 2)
 
 
 def calculate_model_weights(model, columns):  # 8
