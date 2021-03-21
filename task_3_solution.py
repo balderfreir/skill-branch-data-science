@@ -67,16 +67,22 @@ def fit_first_linear_model(x_train, y_train):  # 5, 6
     return model
 
 
-def evaluate_model(model, x_valid, y_valid):  # 7
-    # inv_matrix = np.linalg.inv(np.dot(x_valid.T, x_valid))
-    # w_norm = np.dot(np.dot(inv_matrix, x_valid.T), y_valid)
-    # y_pred = np.dot(w_norm, x_valid.T)
-
-    y_pred = model.predict(x_valid)
-    mse = round(mean_squared_error(y_valid, y_pred), 2)
-    mae = round(mean_absolute_error(y_valid, y_pred), 2)
-    r2 = round(r2_score(y_valid, y_pred), 2)
-    return mse, mae, r2
+# def evaluate_model(model, x_valid, y_valid):  # 7
+#     # inv_matrix = np.linalg.inv(np.dot(x_valid.T, x_valid))
+#     # w_norm = np.dot(np.dot(inv_matrix, x_valid.T), y_valid)
+#     # y_pred = np.dot(w_norm, x_valid.T)
+#
+#     y_pred = predict(model, x_valid)
+#     mse = round(mean_squared_error(y_valid, y_pred), 2)
+#     mae = round(mean_absolute_error(y_valid, y_pred), 2)
+#     r2 = round(r2_score(y_valid, y_pred), 2)
+#     return mse, mae, r2
+def evaluate_model(linreg, x_test, y_test):
+    y_pred = linreg.predict(x_test)
+    mse = mean_squared_error(y_test, y_pred)
+    mae = mean_absolute_error(y_test, y_pred)
+    r2 = r2_score(y_test, y_pred)
+    return [round(mse, 2), round(mae, 2), round(r2, 2)]
 
 
 def calculate_model_weights(model, columns):  # 8
